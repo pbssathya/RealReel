@@ -1,0 +1,23 @@
+engine:
+  name: RealReel
+  version: "0.1.0"
+
+paths:
+  projects: "./projects"
+  assets: "./assets"
+  cache: "./cache"
+  output: "./output"
+
+defaults:
+  language: English
+  platform: youtube
+  duration: 60
+  resolution: "1080x1920"
+  fps: 30
+
+creator:
+  profile: default
+
+logging:
+  level: INFO
+  

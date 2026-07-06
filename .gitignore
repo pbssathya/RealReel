@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ===========================
+# RealReel
+# ===========================
+
+# Global cache/output
+cache/
+output/
+
+# Generated project content
+projects/*/cache/
+projects/*/output/
+projects/*/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
