@@ -3,18 +3,22 @@ from dataclasses import dataclass
 
 @dataclass
 class Shot:
-    """Represents one shot in the timeline."""
 
-    id: int
+    number: int
+
+    duration: int
+
+    purpose: str = ""
 
     narration: str = ""
 
     visual: str = ""
 
-    animation: str = ""
+    image_prompt: str = ""
 
-    duration: float = 0.0
+    camera: str = ""
 
-    avatar: bool = False
+    transition: str = ""
 
-    music: str = ""
+    emotion: str = ""
+    

@@ -1,9 +1,17 @@
 from .project import Project
-from .shot import Shot
+from .production import Production
+from .production_status import ProductionStatus
+from .scene import Scene
 from .asset import Asset
+from .timeline import Timeline
+from .deliverable import Deliverable
 
 __all__ = [
     "Project",
-    "Shot",
+    "Production",
+    "ProductionStatus",
+    "Scene",
     "Asset",
+    "Timeline",
+    "Deliverable",
 ]

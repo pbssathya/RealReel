@@ -2,9 +2,9 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Asset:
+class Deliverable:
     """
-    Represents any reusable production asset.
+    Represents an exported output of a production.
     """
 
     pass

@@ -217,19 +217,29 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# ===========================
+# ==========================================
 # RealReel
-# ===========================
+# ==========================================
 
-# Global cache/output
-cache/
-output/
+# Runtime output
+output/*
+!output/.gitkeep
 
-# Generated project content
+cache/*
+!cache/.gitkeep
+
+# Project runtime folders
 projects/*/cache/
 projects/*/output/
 projects/*/logs/
 
-# OS files
+# Keep empty directory placeholders
+!cache/.gitkeep
+!output/.gitkeep
+
+# RealReel assets generated at runtime (if applicable)
+assets/generated/
+
+# macOS / Windows
 .DS_Store
 Thumbs.db
