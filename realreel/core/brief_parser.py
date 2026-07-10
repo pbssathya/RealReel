@@ -1,26 +1,30 @@
 from pathlib import Path
 
-from realreel.models.project import Project
+from realreel.models import Project
+from realreel.models.production import Production
 
 
 class BriefParser:
+    """
+    Parses a project brief and constructs the initial
+    Project and Production domain objects.
+    """
 
-    def parse(self, filepath):
+    def parse(self, brief_file: Path) -> Project:
 
-        path = Path(filepath)
-
-        if not path.exists():
-            raise FileNotFoundError(filepath)
-
-        lines = path.read_text(
-            encoding="utf-8"
-        ).splitlines()
+        if not brief_file.exists():
+            raise FileNotFoundError(
+                f"{brief_file} not found."
+            )
 
         project = Project()
+        production = Production()
 
         description = []
 
-        for line in lines:
+        for line in brief_file.read_text(
+            encoding="utf-8"
+        ).splitlines():
 
             line = line.strip()
 
@@ -28,9 +32,14 @@ class BriefParser:
                 continue
 
             if line.startswith("# "):
-                project.title = line[2:].strip()
+                title = line[2:].strip()
 
-            elif ":" in line:
+                project.title = title
+                production.title = title
+
+                continue
+
+            if ":" in line:
 
                 key, value = line.split(":", 1)
 
@@ -38,27 +47,27 @@ class BriefParser:
                 value = value.strip()
 
                 if key == "platform":
-                    project.platform = value
+                    production.platform = value
 
                 elif key == "duration":
-                    project.duration = int(value)
+                    production.duration = int(value)
 
                 elif key == "language":
-                    project.language = value
+                    production.language = value
 
-                elif key == "target audience":
-                    project.audience = value
+                elif key == "audience":
+                    production.audience = value
 
                 elif key == "tone":
-                    project.tone = value
+                    production.tone = value
 
-                else:
-                    description.append(line)
+                continue
 
-            else:
-                description.append(line)
+            description.append(line)
 
         project.description = "\n".join(description)
+
+        project.add_production(production)
 
         return project
     

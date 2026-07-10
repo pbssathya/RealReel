@@ -254,3 +254,104 @@ If none of the above apply, the item should not be added.
 *"Good software is not built by remembering every idea.*
 
 *It is built by recording good ideas until the right time arrives."*
+
+---
+
+## ARCH-001
+### Rename ProductionPlanner to ProductionSpecificationBuilder
+
+**Status**
+Pending
+
+**Priority**
+Medium
+
+**Reason**
+
+The component has evolved beyond creating a simple production plan.
+
+Its responsibility is to generate the canonical **Production Specification**
+that serves as the contract between the planning phase and downstream
+execution engines.
+
+Future components such as:
+
+- Renderer
+- Voice Engine
+- Image Engine
+- Music Engine
+- Subtitle Engine
+- Publishing Engine
+
+should consume this specification instead of interacting directly with
+Project or Production objects.
+
+Renaming the component will better reflect its architectural
+responsibility and improve long-term maintainability.
+
+**Deferred Because**
+
+The current sprint is focused on completing the Project → Production
+domain migration.
+
+The rename will be performed after the migration is complete to avoid
+mixing architectural refactoring with functional changes.
+
+**Acceptance Criteria**
+
+- Rename `ProductionPlanner` to `ProductionSpecificationBuilder`
+- Rename `production_planner.py`
+- Update all imports
+- Update CLI references
+- Update documentation
+- Preserve existing functionality
+
+---
+
+## DOC-001
+### Reorganize the Technical Backlog
+
+**Status**
+Pending
+
+**Priority**
+Low
+
+**Reason**
+
+The current backlog has grown beyond a simple CORE task list.
+
+As the project matures, backlog items should be organized into
+engineering domains to improve discoverability and long-term
+maintenance.
+
+Proposed sections include:
+
+- Architecture
+- Core Domain
+- AI Providers
+- Rendering
+- CLI
+- Documentation
+- DevOps
+- Testing
+
+This is a documentation improvement and should be performed during
+a dedicated documentation sprint rather than alongside feature
+development.
+
+**Acceptance Criteria**
+
+- Group backlog items by category
+- Introduce category-based numbering
+  (e.g. ARCH-001, CORE-001, DOC-001)
+- Preserve existing history
+- Improve readability
+
+==============
+Sathya 10 July 2026 - discuss - give video url, get video or idea, recreate using RealReel
+
+-------
+-- 10 July 2026 ---
+#Items to be added which came during discussion
+1. We'll eventually run Ruff/Flake8 and remove all unused imports in one cleanup sprint.

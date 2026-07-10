@@ -3,38 +3,44 @@ from pathlib import Path
 
 
 class ProductionPlanner:
+    """
+    Builds the Production Specification for a project.
+    """
 
     def build(self, project, output_file):
 
-        production = {
+        if not project.productions:
+            raise ValueError(
+                "Project contains no productions."
+            )
+
+        production = project.productions[0]
+
+        specification = {
+
+            "schema_version": "0.2",
 
             "project": {
+
                 "title": project.title,
-                "platform": project.platform,
-                "duration": project.duration,
-                "language": project.language,
-                "audience": project.audience,
-                "tone": project.tone,
                 "description": project.description,
+
             },
 
-            "shots": [
+            "production": {
 
-                {
-                    "number": shot.number,
-                    "purpose": shot.purpose,
-                    "duration": shot.duration,
-                    "narration": shot.narration,
-                    "visual": shot.visual,
-                    "camera": shot.camera,
-                    "emotion": shot.emotion,
-                    "transition": shot.transition,
-                    "image_prompt": shot.image_prompt,
-                }
+                "title": production.title,
+                "platform": production.platform,
+                "duration": production.duration,
+                "language": production.language,
+                "audience": production.audience,
+                "tone": production.tone,
+                "status": production.status.name,
 
-                for shot in project.shots
+            },
 
-            ]
+            "scenes": []
+
         }
 
         output = Path(output_file)
@@ -46,7 +52,7 @@ class ProductionPlanner:
 
         output.write_text(
             json.dumps(
-                production,
+                specification,
                 indent=4
             ),
             encoding="utf-8"

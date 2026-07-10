@@ -2,6 +2,8 @@ from pathlib import Path
 
 from realreel.models import Project
 
+from realreel.models.production import Production
+
 
 class ProjectParser:
     """

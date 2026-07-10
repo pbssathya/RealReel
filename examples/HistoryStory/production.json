@@ -1,68 +1,17 @@
 {
+    "schema_version": "0.2",
     "project": {
+        "title": "The Fall of Constantinople",
+        "description": "Create a cinematic historical short explaining how Constantinople fell."
+    },
+    "production": {
         "title": "The Fall of Constantinople",
         "platform": "YouTube Shorts",
         "duration": 60,
         "language": "English",
-        "audience": "History lovers.",
+        "audience": "",
         "tone": "Dramatic and emotional.",
-        "description": "Create a cinematic historical short explaining how Constantinople fell."
+        "status": "DRAFT"
     },
-    "shots": [
-        {
-            "number": 1,
-            "purpose": "Hook",
-            "duration": 5,
-            "narration": "",
-            "visual": "",
-            "camera": "",
-            "emotion": "",
-            "transition": "",
-            "image_prompt": ""
-        },
-        {
-            "number": 2,
-            "purpose": "Introduction",
-            "duration": 10,
-            "narration": "",
-            "visual": "",
-            "camera": "",
-            "emotion": "",
-            "transition": "",
-            "image_prompt": ""
-        },
-        {
-            "number": 3,
-            "purpose": "Main Content",
-            "duration": 20,
-            "narration": "",
-            "visual": "",
-            "camera": "",
-            "emotion": "",
-            "transition": "",
-            "image_prompt": ""
-        },
-        {
-            "number": 4,
-            "purpose": "Climax",
-            "duration": 15,
-            "narration": "",
-            "visual": "",
-            "camera": "",
-            "emotion": "",
-            "transition": "",
-            "image_prompt": ""
-        },
-        {
-            "number": 5,
-            "purpose": "Call To Action",
-            "duration": 10,
-            "narration": "",
-            "visual": "",
-            "camera": "",
-            "emotion": "",
-            "transition": "",
-            "image_prompt": ""
-        }
-    ]
+    "scenes": []
 }

@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 
 from .production_status import ProductionStatus
+from .timeline import Timeline
 
 
 @dataclass
@@ -13,6 +14,17 @@ class Production:
     # ------------------------------------------------------------------
     # Core Attributes
     # ------------------------------------------------------------------
+    title: str = ""
+
+    platform: str = ""
+
+    duration: int = 0
+
+    language: str = ""
+
+    audience: str = ""
+
+    tone: str = ""
 
     status: ProductionStatus = ProductionStatus.DRAFT
 
@@ -20,7 +32,7 @@ class Production:
 
     assets: list = field(default_factory=list)
 
-    timeline = None
+    timeline: Timeline = field(default_factory=Timeline)
 
     deliverables: list = field(default_factory=list)
 
